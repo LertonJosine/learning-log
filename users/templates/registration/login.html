@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+
+{% block header %}
+<h2>Log in to your account.</h2>
+{%endblock header%}
+{% block content %}
+<form action="{% url 'login' %}" method="post" class="form">
+    {%bootstrap_form form%}
+    {%buttons%}
+
+    {% csrf_token %}
+    {% comment %} {{form.as_p}} {% endcomment %}
+<button name="submit" class="btn btn-primary">  Login  </button>
+{%endbuttons%}
+<p>Don't have an account? <a href="{% url 'registrar' %}">Sign up</a></p>
+</form>
+
+{% endblock content %}
