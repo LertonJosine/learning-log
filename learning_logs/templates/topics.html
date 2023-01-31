@@ -1,7 +1,5 @@
-
-
 {% extends 'base.html' %}
-{% block header %}    
+{% block header %}
 <h1>Topics</h1>
 {% endblock header %}
 
@@ -12,11 +10,11 @@
     <li>
         <h3>
             <a href="{% url 'topic' topic.id %}">{{topic}}</a>
+            <a href="{% url 'delete' topic.id%}"> delete </a>
         </h3>
     </li>{%empty%}
-     <li> nenhum topico foi adicionado ainda</li>
+    <li> nenhum topico foi adicionado ainda</li>
     {% endfor %}
 </ul>
-<h3><a href="{% url 'new_topic' %}">add a new topic</a></h3>
+<h3 class="btn btn-primary" ><a href="{% url 'new_topic' %}" style="color:white; text-decoration:none;">add a new topic</a></h3>
 {% endblock content %}
-

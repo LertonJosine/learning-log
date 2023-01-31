@@ -1,5 +1,3 @@
-from contextlib import nullcontext
-from tkinter.tix import Tree
 from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
@@ -7,13 +5,13 @@ from django.contrib.auth.models import User
 class Topic(models.Model):
     text = models.CharField(max_length=200, blank=True,null=True)
     date_added = models.DateTimeField(auto_now_add=True)
-    user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.text
 
 class Entry(models.Model):
-    topic = models.ForeignKey(Topic , on_delete=models.DO_NOTHING)
+    topic = models.ForeignKey(Topic , on_delete=models.CASCADE)
     text = models.TextField()
     date_added = models.DateTimeField(auto_now_add=True)
 

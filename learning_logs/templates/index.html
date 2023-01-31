@@ -1,3 +1,30 @@
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyB1yi5vVq24ZpHQDGV-h8M6NcZPMnsrTgo",
+      authDomain: "learninglog-v1.firebaseapp.com",
+      projectId: "learninglog-v1",
+      storageBucket: "learninglog-v1.appspot.com",
+      messagingSenderId: "189128344322",
+      appId: "1:189128344322:web:0e048baab41b03ee5e781b",
+      measurementId: "G-2NSYJL8T05"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+
 {% extends 'base.html' %}
 {% block header %}
 <div class="jumbotron">

@@ -5,7 +5,7 @@
 from pathlib import Path
 from django.contrib import admin
 from django.urls import path
-from learning_logs.views import home, topics, topic, new_topic, new_entry, edit_entry
+from learning_logs.views import home, topics, topic, new_topic, new_entry, edit_entry, delete_topics, delete_entry
 from users.views import registrar
 
 urlpatterns = [
@@ -16,6 +16,8 @@ urlpatterns = [
     path('new_topic/', new_topic, name='new_topic'),
     path('new_entry/<int:topic_id>/', new_entry, name='new_entry'),
     path('edit_entry/<int:entry_id>/', edit_entry, name='edit_entry'),
+    path('delete/<int:topic_id>/', delete_topics, name='delete'),
+    path('delete_entry/<int:entry_id>/', delete_entry, name='delete_entry'),
     
     
 ]

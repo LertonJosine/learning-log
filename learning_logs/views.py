@@ -15,8 +15,9 @@ def home(request):
     return render(request, 'index.html')
 
     
-@login_required()
+@login_required
 def topics(request):
+    
     topics = Topic.objects.filter(user=request.user).order_by('-date_added')
     context = {
         'topics': topics
@@ -100,3 +101,17 @@ def edit_entry(request, entry_id):
             'entry': entry
         }
         return render(request, 'edit_entry.html', context)
+@login_required
+def delete_topics(request, topic_id):
+    topic = Topic.objects.get(id=topic_id)
+    # if request.method == 'POST':
+    topic.delete()
+    return HttpResponseRedirect(reverse('topics'))
+
+@login_required  
+def delete_entry(request, entry_id):
+    entry = Entry.objects.get(id=entry_id)
+    topic = entry.topic
+    entry.delete()
+    return HttpResponseRedirect(reverse('topic', args=[topic.id]))    # type: ignore
+    
